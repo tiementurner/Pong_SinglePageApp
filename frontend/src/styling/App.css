@@ -1,0 +1,257 @@
+
+.app-container {
+	--background-colour: #CF6766;
+	--primary-colour: #304150;
+	--secondary-colour: #031424;
+	--tertiary-colour: #8EAEBD;
+	background-color: var(--background-colour);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	height: 100vh;
+	font-size: 16px;
+	/* margin: 5px; */
+}
+
+.page-container {
+	padding: 0px;
+	height: 90%;
+	/* height: 85vh;
+	height: 90em; */
+	justify-content: center;
+	background-color: var(--background-colour);
+}
+
+header {
+	display: flex;
+	flex-direction: row ;
+	column-gap: 20px;
+	background-color: white;
+}
+
+header > div {
+	align-self: center;
+}
+
+nav {
+	background-color: var(--primary-colour);
+	font-weight: 600;
+	height: 5vh;
+	min-height: 3em;
+	display: flex;
+	flex-direction: row;
+	color: white;
+	gap: 3vw;
+	text-align: center;
+	align-items: center;
+	padding-left: 1em;
+}
+
+	nav a {
+		margin: 0;
+		display: inline-block;
+		padding: 5px;
+		background-color: var(--primary-colour);
+		color: white;
+		font-size: 1.5rem;
+		text-decoration: none;
+		text-align: center;
+		font-family: arial;
+		font-variant: small-caps;
+	}
+
+	nav a:visited {
+		color: white;
+	}
+
+	nav a:hover {
+		background-color: var(--secondary-colour);
+	}
+
+	nav a:active {
+		background-color: white;
+		color:  var(--secondary-colour);
+	}
+
+.search-bar {
+	display: flex;
+	flex-direction: row;
+	/* width: 50%; */
+}
+
+.search-bar input {
+	width: 60%;
+}
+
+.search-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding-left: 2em;
+	padding-right: 2em;
+	text-align: left;
+	/* justify-items: flex-start; */
+}
+
+.search-icon {
+	background-color: var(--secondary-colour);
+	color: white;
+}
+
+.search-results {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0px;
+	height: 90%;
+	overflow-y: scroll;
+	gap: 0.5em;
+	list-style: none;
+}
+
+.results-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: var(--secondary-colour);
+	/* padding: 1em; */
+	width: 100%;
+	margin: 0px;
+}
+
+.results-header > div {
+	width: 33%;
+	padding: 0.5em;
+	padding-right: 1em;
+}
+
+.search-result {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: var(--primary-colour);
+	width: 90%;
+	justify-content: space-evenly;
+	padding-left: 1em;
+	padding-right: 1em;
+	list-style: none;
+}
+
+.search-result > div {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.result-name {
+	font-weight: bold;
+	width: 60%;
+}
+
+.result-type {
+	width: 20%;
+
+}
+
+.result-action {
+	text-align: right;
+	width: 20%;
+}
+
+.popup-content {
+	height: 200px;
+}
+
+.notifications-icon {
+	position: absolute;
+	top: 1vh;
+	right: 2vh;
+}
+
+.home-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 5vh;
+}
+
+.home-container h1 {
+	position: relative;
+	font-size: 1.5em;
+	align-self: center;
+	color: var(--secondary-colour);
+}
+
+.home-container p {
+	text-align: start;
+}
+
+.home-container a {
+	background-color: var(--secondary-colour);
+	color: white;
+	display: inline-block;
+	padding: 5px;
+	text-decoration: none;
+}
+
+.jan-container {
+	position:absolute;
+	right: 5vw;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+	background-color: var(--background-colour);
+	transition: background-image 0.3s ease, background-color 0.3s ease;
+}
+
+.jan-container:hover {
+	background-image: url('JanSmit.jpeg');
+	background-size: contain;
+}
+
+.liwen-container {
+	position:absolute;
+	right: 5vw;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+	background-color: var(--background-colour);
+	transition: background-image 0.3s ease, background-color 0.3s ease;
+}
+
+.liwen-container:hover {
+	background-image: url('LilWayne.jpeg');
+	background-size: contain;
+}
+
+.tiemen-container {
+	position:absolute;
+	right: 5vw;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+	background-color: var(--tertiary-colour);
+	transition: background-image 0.3s ease, background-color 0.3s ease;
+}
+
+.tiemen-container:hover {
+	background-image: url('TinaTurner.jpeg');
+	background-size: contain;
+}
+
+.naomi-container {
+	position:absolute;
+	right: 5vw;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
+	background-color: var(--background-colour);
+	transition: background-image 0.3s ease, background-color 0.3s ease;
+}
+
+.naomi-container:hover {
+	background-image: url('NaomiCampbell.jpeg');
+	background-size: contain;
+}

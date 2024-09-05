@@ -1,0 +1,52 @@
+.friends-container {
+	display: flex;
+	flex-flow: column wrap;
+	width: 100%;
+	background-color: var(--primary-colour);
+}
+
+.friends-container > .search-bar {
+	width: 75%;
+}
+	.friend-list {
+		display: flex;
+		flex-flow: column wrap;
+		height: 30px;
+		/* width: 150px; */
+		padding: 0px;
+		font-size: 12px;
+		margin: 0.5em;
+		list-style: none;
+	}
+	
+	.friend-button {
+		border: solid var(--background-colour) 1px;
+		background-color: var(--background-colour);
+		color: var(--white-colour);
+		padding: 0.5em;
+	}
+
+.friend-search-bar {
+	align-self: center;
+	width: 75%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.friend-search-bar input {
+	width: 70%;
+}
+
+.friend-search-bar > form {
+	width: 70%;
+}
+
+.friend-search-results {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+}
+
+.friend-invite {
+	width: 20%;
+}

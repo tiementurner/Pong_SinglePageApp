@@ -1,0 +1,93 @@
+.channel-menu-container {
+	display: flex;
+	flex-flow: column;
+	margin-top: 0.5em;
+	width: 90%;
+	height: 94%;
+	/* border: 1px solid var(--primary-colour); */
+	border-radius: 0.5em;
+	background-color: var(--tertiary-colour);
+	top: 10px;
+	font-size: 12px;
+}
+
+.channel-menu-members-header {
+	margin-top: 0.5em;
+	color: white;
+	padding: 0.5em;
+	background-color: var(--secondary-colour);
+	/* color: var(--secondary-colour); */
+	/* text-align: start; */
+}
+
+.channel-member-list-container {
+	display: flex;
+	flex-flow: column wrap;
+	/* border: 1px black; */
+	/* flex-direction: column; */
+	width: 90%;
+	height: auto;
+}
+
+.channel-menu-member-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	gap: 0.5em;
+	/* background-color: white; */
+	color: var(--secondary-colour);
+	margin: 5px;
+	padding: 2px;
+}
+
+.member-role-container {
+	display: flex;
+	flex-flow: column wrap;
+	margin: 0px;
+	padding: 0px;
+}
+
+.member-role-container p {
+	margin: 0px;
+	font-size: 0.9em;
+}
+
+.channel-menu-member-name {
+	border: 1px solid black;
+	border-bottom-style: outset;
+	border-bottom-width: 1.5px;
+	border-radius: 0.2rem;
+	/* color: var(--secondary-colour); */
+	background-color: var(--primary-colour);
+	/* opacity: 0.9; */
+	color: white;
+	font-size: 1.2em;
+	text-align: center;
+	justify-items: center;
+	padding: 0.3rem;
+}
+
+.channel-menu-member-name:hover {
+	cursor: pointer;
+}
+
+.channel-menu-settings {
+	display: block;
+	background-color: var(--secondary-colour);
+	padding: 0.5em;
+	margin-top: 10px;
+}
+
+.channel-menu-leave-channel {
+	/* background-color: var(--background-colour); */
+}
+
+.channel-menu-leave-channel button {
+	text-decoration: none;
+	display: inline-block;
+	margin: 10px;
+	background-color: var(--secondary-colour);
+	color: white;
+	padding-left: 1em;
+	padding-right: 1em;
+}

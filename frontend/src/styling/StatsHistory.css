@@ -1,0 +1,80 @@
+
+.stats-history-container {
+	width: 100%;
+	height: 90%;
+	margin: 0px;
+	/* overflow-y: scroll; */
+	scrollbar-color: var(--background-colour);
+
+}
+
+.stats-history-container h3 {
+	background-color: var(--secondary-colour);
+	padding: 0.5rem;
+	margin: unset;
+}
+	
+.history-container {
+	display: flex;
+	flex-flow: column;
+	overflow-y: scroll;
+	scrollbar-color: var(--background-colour);
+	height: 40%;
+	width: 100%;
+	gap: 1.8rem;
+}
+	.stats-container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		/* height: 100%; */
+		gap: 0.5rem;
+		margin: unset;
+		justify-content: space-evenly;
+	}
+
+	.stat {
+		/* padding: 0.5em; */
+		display: flex;
+		flex-direction: column;
+	}
+
+	.stat h2 {
+		font-size: 1.5em;
+		margin: 0.4em;
+	}
+
+	.stat p {
+		margin-top: 0px;
+	}
+
+.stats-ranking {
+	border: 1px solid;
+	margin: 1px;
+}
+
+.history-match {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.match-date {
+	align-self: start;
+	margin-right: 1rem;
+}
+
+.match-score {
+	font-size: 1.1rem;
+	background-color: var(--primary-colour);
+	padding: 0px;
+	color: white;
+}
+
+.match-username {
+	margin: 1px;
+}
+
