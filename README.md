@@ -1,4 +1,4 @@
-# ft_Transcendence
+# Pong_SPA
 A single page web application to play online PONG. Complete with matchmaking, account creation, friendlist, match history, ranking and a livechat.
 
 Requirements:<br/>
