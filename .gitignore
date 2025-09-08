@@ -1,4 +1,8 @@
 node_modules
 dist
 
+.env
+frontend/.env
+backend/.env
+
 Tiementodo.txt
