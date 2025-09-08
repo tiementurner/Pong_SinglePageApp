@@ -1,0 +1,134 @@
+
+.profile-container {
+	display: flex;
+	flex-direction: column;
+	margin: 0px;
+	padding: 5px;
+	height: 100%;
+}
+	.profile-top-container {
+		width: 100%;
+		height: 15%;
+		display: flex;
+		flex-direction: row;
+		margin: 1rem;
+	}
+		.profile-avatar {
+			width: 30%;
+			align-content: center;
+		}
+
+		.profile-avatar img {
+			max-width: 100%;
+			max-height: 100%;
+			border-radius: 0.5rem;
+		}
+
+		.profile-name-status-container {
+			display: flex;
+			flex-direction: column;
+			width: 20%;
+			justify-content: center;
+		}
+
+		.profile-name-status-container > div {
+			margin: 0.3rem;
+		}
+
+		.profile-action-container {
+			width: 40%;
+			display: flex;
+			align-items: center;
+			flex-flow: column wrap;
+			justify-content: space-evenly;
+		}
+
+		.profile-action-container > div {
+			align-content: center;
+		}
+
+	.profile-bottom-container {
+		height: 85%;
+		gap: 0;
+		margin: 1rem;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		background-color: var(--primary-colour);
+	}
+
+.profile-change-display {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	gap: none;
+	width: 100%;
+	height: 5vh;
+	background-color: var(--background-colour);
+}
+
+.profile-change-display > button {
+	margin: 0px;
+	min-width: 50%;
+	background-color: var(--tertiary-colour);
+	border: 0.1rem solid var(--tertiary-colour);
+	border-radius: 0.75rem 0.75rem 0rem 0rem;
+	color: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.profile-change-display > h3 {
+	margin: 0px;
+	background-color: var(--primary-colour);
+	width: 50%;
+	border: 0.1rem solid var(--primary-colour);
+	border-radius: 0.75rem 0.75rem 0rem 0rem;
+	align-content: center;
+}
+
+.profile-name {
+	font-size: 1.5em;
+	color: var(--secondary-colour);
+}
+
+.profile-status {
+	font-size: 0.8rem;
+}
+
+.profile-button {
+	background-color: var(--secondary-colour);
+	color: white;
+	display: inline-block;
+	padding-block: unset;
+	padding-inline: unset;
+	appearance: unset;
+	box-sizing: unset;
+	text-rendering: unset;
+	padding: 0.6rem;
+	text-decoration: none;
+	border: 0px;
+	cursor: pointer;
+	width: 100px;
+	height: 1rem;
+}
+
+.profile-add {
+	background-color: var(--background-colour);
+	color: var(--secondary-colour);
+	padding: 0.6rem;
+	font-size: 2rem;
+	display: inline-block;
+	padding-block: unset;
+	padding-inline: unset;
+	appearance: unset;
+	box-sizing: unset;
+	text-rendering: unset;
+	text-decoration: none;
+	border: 0px;
+	cursor: pointer;
+}
+
+.profile-add:hover {
+	cursor:pointer
+}

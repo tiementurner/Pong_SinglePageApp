@@ -1,0 +1,25 @@
+# Use the official Node.js image as a base for the build stage
+FROM node:20.11.1 AS build
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the entire project directory to the working directory
+COPY . .
+
+# Install dependencies
+RUN npm install
+
+# Build the NestJS app (if required)
+#RUN npm run build
+
+FROM node:alpine AS production
+
+# Copy the built files from the build stage to the production environment
+COPY --from=build /app ./
+
+# Expose the port on which your NestJS app will run
+EXPOSE 3001
+
+# Start the NestJS app
+CMD ["sh", "start.sh"]

@@ -1,0 +1,103 @@
+services:
+  backend:
+    container_name: backend
+    env_file:
+      - .env
+    build: ./backend
+    # Remove external ports - Traefik will handle routing
+    expose:
+      - "3001"
+    depends_on:
+      - db
+    environment:
+      - SESSION_MANAGER=${SESSION_MANAGER}
+    volumes:
+      - ./backend/public/img:/public/img
+    networks:
+      - app-network
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`tiemen.blankert.com`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.backend.entrypoints=web"
+      - "traefik.http.services.backend.loadbalancer.server.port=3001"
+      - "traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api"
+      - "traefik.http.routers.backend.middlewares=backend-stripprefix"
+      - "traefik.http.routers.backend.priority=10"
+      # For HTTPS (uncomment when you have SSL setup):
+      # - "traefik.http.routers.backend-secure.rule=Host(`api.yourdomain.com`)"
+      # - "traefik.http.routers.backend-secure.entrypoints=websecure"
+      # - "traefik.http.routers.backend-secure.tls.certresolver=myresolver"
+   
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    env_file:
+      - .env
+    # Remove external ports - Traefik will handle routing
+    expose:
+      - "3000"
+    environment:
+      - SESSION_MANAGER=${SESSION_MANAGER}
+    networks:
+      - app-network
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`tiemen.blankert.com`)"
+      - "traefik.http.routers.frontend.entrypoints=web"
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.frontend.priority=1"
+      # For HTTPS (uncomment when you have SSL setup):
+      # - "traefik.http.routers.frontend-secure.rule=Host(`yourdomain.com`)"
+      # - "traefik.http.routers.frontend-secure.entrypoints=websecure"
+      # - "traefik.http.routers.frontend-secure.tls.certresolver=myresolver"
+     
+  db:
+    image: postgres:16
+    expose:
+      - "5432"
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+ 
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: pgadmin
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@example.com
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   depends_on:
+  #     - db
+  #   logging:  
+  #     driver: none
+  #   networks:
+  #     - app-network
+  #     - traefik
+  #   profiles:
+  #     - dev
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.yourdomain.com`)"
+  #     - "traefik.http.routers.pgadmin.entrypoints=web"
+  #     - "traefik.http.services.pgadmin.loadbalancer.server.port=80"
+
+volumes:
+  postgres-data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
+  traefik:
+    external: true

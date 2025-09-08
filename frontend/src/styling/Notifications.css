@@ -1,0 +1,75 @@
+#popup-2 {
+	height: 40vh;
+	--secondary-colour: #031424;
+	--background-colour: #CF6766;
+	--primary-colour: #304150;
+	--tertiary-colour: #8EAEBD;
+	background-color: var(--secondary-colour);
+}
+
+.notification-list {
+	list-style: none;
+	display: flex;
+	flex-flow: column;
+	position: absolute;
+	gap: 1rem;
+	padding: 5px;
+	overflow-y: scroll;
+	color: white;
+	border: none;
+	height: 90%;
+	width: 90%;
+	--secondary-colour: #031424;
+	background-color: var(--secondary-colour);
+
+}
+
+.notification-list * button {
+	background-color: var(--background-colour);
+	color: white;
+	padding: 5px;
+	margin: 0.5rem;
+	text-decoration: none;
+	border: none;
+	font: 16px arial;
+}
+
+.notif-request {
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+.notif-response {
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+.notif-action-container {
+	margin: 0px;
+	display: flex;
+	flex-direction: row;
+}
+
+.notifications-icon {
+	width: 2rem;
+	height: 2rem;
+}
+
+.material-icons {
+	font-size: 1.5rem;
+}
+
+@keyframes shake {
+	0% { transform: translateX(0); }
+	25% { transform: translateX(-5px); }
+	50% { transform: translateX(5px); }
+	75% { transform: translateX(-5px); }
+	100% { transform: translateX(0); }
+  }
+  
+  .shake {
+	animation: shake 0.5s ease 0s 2;
+  }
+  

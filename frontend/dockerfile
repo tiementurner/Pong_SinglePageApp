@@ -1,0 +1,30 @@
+# Build Stage
+FROM node:20.11.1 AS build
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the entire project directory to the working directory
+COPY . .
+
+
+# Install dependencies
+RUN npm install
+
+# # Production Stage
+FROM node:alpine AS production
+
+# # Set the working directory in the container
+WORKDIR /app
+
+# Copy built artifacts from the build stage
+COPY --from=build /app /app
+
+# Install serve globally
+RUN npm install -g serve
+
+# Expose the port on which your React app will run
+EXPOSE 3000
+
+# Start the React app
+CMD ["sh", "start.sh"]
