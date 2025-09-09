@@ -111,7 +111,7 @@ export const LoginPage = ( ) => {
 
 	return (
 		<div>
-			<p> Authentication is required to access this page </p>
+			<p> Authentication is required to access this page test</p>
 			<div>
 				<form onSubmit={handleSubmit}>
 					<div>
