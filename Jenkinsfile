@@ -10,6 +10,7 @@ pipeline {
         stage('Build & Deploy') {
             steps {
                 sh '''
+                  cp /home/tiemen/.pong_env $WORKSPACE/.env
                   docker compose down
                   docker compose up -d --build
                 '''
