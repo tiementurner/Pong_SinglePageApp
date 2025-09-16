@@ -5,11 +5,9 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 import { ConfigService } from '@nestjs/config';
 import { ValidationPipe } from '@nestjs/common';
 
-
 async function bootstrap() {
 	// const app = await NestFactory.create(AppModule);
 	const app = await NestFactory.create(AppModule, {snapshot: true});
-	
 	
 	const server = app.getHttpServer();
 	server.keepAliveTimeout = 30000;
@@ -32,7 +30,7 @@ async function bootstrap() {
 	app.useGlobalPipes(new ValidationPipe());
 
 	const corsOptions: CorsOptions = {
-		origin: "http://tiemen.blankert.com",
+		origin: `${configService.getOrThrow('FRONTEND_URL')}`,
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 		credentials: true,
 	};

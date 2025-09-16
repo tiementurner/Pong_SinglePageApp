@@ -25,10 +25,6 @@ services:
       - "traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api"
       - "traefik.http.routers.backend.middlewares=backend-stripprefix"
       - "traefik.http.routers.backend.priority=10"
-      # For HTTPS (uncomment when you have SSL setup):
-      # - "traefik.http.routers.backend-secure.rule=Host(`api.yourdomain.com`)"
-      # - "traefik.http.routers.backend-secure.entrypoints=websecure"
-      # - "traefik.http.routers.backend-secure.tls.certresolver=myresolver"
    
   frontend:
     container_name: frontend
@@ -36,8 +32,8 @@ services:
     env_file:
       - .env
     # Remove external ports - Traefik will handle routing
-    expose:
-      - "3000"
+    ports:
+      - "3000:3000"
     environment:
       - SESSION_MANAGER=${SESSION_MANAGER}
     networks:
@@ -49,10 +45,6 @@ services:
       - "traefik.http.routers.frontend.entrypoints=web"
       - "traefik.http.services.frontend.loadbalancer.server.port=3000"
       - "traefik.http.routers.frontend.priority=1"
-      # For HTTPS (uncomment when you have SSL setup):
-      # - "traefik.http.routers.frontend-secure.rule=Host(`yourdomain.com`)"
-      # - "traefik.http.routers.frontend-secure.entrypoints=websecure"
-      # - "traefik.http.routers.frontend-secure.tls.certresolver=myresolver"
      
   db:
     image: postgres:16
@@ -68,7 +60,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
     networks:
       - app-network
- 
+
   # pgadmin:
   #   image: dpage/pgadmin4
   #   container_name: pgadmin
@@ -95,9 +87,12 @@ services:
 volumes:
   postgres-data:
     driver: local
+  es-data:
+    driver: local
 
 networks:
   app-network:
     driver: bridge
   traefik:
-    external: true
+    external: ${USE_TRAEFIK_NETWORK:-true}
+
